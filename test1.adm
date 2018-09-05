@@ -1,0 +1,33 @@
+CLASS MACHINE
+
+CATEGORY !!RemoteDesktopPort
+  POLICY 端口1
+  EXPLAIN !!CalcHelp1
+  KEYNAME "SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp"
+    PART !!Calc_Configure NUMERIC REQUIRED
+    VALUENAME "PortNumber"
+    DEFAULT 3389
+    END PART
+  END POLICY
+
+  POLICY 端口2
+  EXPLAIN !!CalcHelp2
+  KEYNAME "SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp"
+    PART !!Calc_Configure NUMERIC REQUIRED
+    VALUENAME "PortNumber"
+    DEFAULT 3389
+    END PART
+  END POLICY
+
+
+
+END CATEGORY
+
+[strings]
+RemoteDesktopPort="远程桌面端口"
+Calc_Configure="端口："
+
+
+; explains
+CalcHelp1="设置第一个端口"
+CalcHelp2="设置第二个端口"
